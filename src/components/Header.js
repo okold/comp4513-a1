@@ -5,7 +5,7 @@ import "./Header.css"
 const Header = (props) => {
     return (
         <div id="header">
-            <Link to="/">Logo</Link>
+            <Link to="/comp4513-a1/">Logo</Link>
             <button>About</button>
         </div>
     );
