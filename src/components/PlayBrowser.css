@@ -1,0 +1,11 @@
+#play-browser {
+    width: 100%;
+    height: calc(100vh);
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+#play-browser * {
+    margin: 0.25rem;
+    background-color: lightgrey;
+}

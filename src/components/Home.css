@@ -1,0 +1,46 @@
+#fill {
+    width: 100%;
+    height: calc(100vh);
+    background-image: url("./splash.jpg"); /* no imports outside src..... */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#home-box {
+    width: 500px;
+    height: 200px;
+    background-color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#home-box form {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    width: 80%;
+}
+
+#home-box form * {
+    margin: 0.25rem;
+}
+
+#home-box form input {
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+#home-box form .link-btn:first-of-type {
+    grid-column: 2;
+}
+
+
+#credit {
+    margin: 0;
+    text-align: center;
+    color: white;
+}
