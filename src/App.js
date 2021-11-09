@@ -33,8 +33,6 @@ class App extends React.Component {
     return this.state.plays;
   }
 
-
-
   isLoading() {
     if (this.state.loading) { // do this for safety?
       return true;
@@ -67,8 +65,8 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home isLoading={this.isLoading}/>}/>
-          <Route path="/browse" element={<PlayBrowser addToFavs={this.addToFavs} getPlayList={this.getPlayList}/>}/>
+          <Route path="/comp4513-a1" element={}/>
+          <Route path="/comp4513-a1/browse" element={<PlayBrowser addToFavs={this.addToFavs} getPlayList={this.getPlayList}/>}/>
         </Routes>
       </BrowserRouter>
     );
