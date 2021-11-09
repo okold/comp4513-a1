@@ -67,7 +67,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/comp4513-a1" element={<Home isLoading={this.isLoading}/>}/>
+          <Route path="/" element={<Home isLoading={this.isLoading}/>}/>
           <Route path="/browse" element={<PlayBrowser addToFavs={this.addToFavs} getPlayList={this.getPlayList}/>}/>
         </Routes>
       </BrowserRouter>
