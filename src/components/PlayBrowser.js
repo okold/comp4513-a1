@@ -9,9 +9,9 @@ const PlayBrowser = (props) => {
     return (
         <div id="play-browser">
             <Header/>
-            <FavoritesList/>
-            <Filters/>
-            <PlayList addToFavs={props.addToFavs} getPlayList={props.getPlayList}/>
+            <FavoritesList getFavFunctions={props.getFavFunctions}/>
+            <Filters title={props.title} filterPlays={props.filterPlays}/>
+            <PlayList addToFavs={props.getFavFunctions().addToFavs} getPlayList={props.getPlayList}/>
         </div>
     );
 }

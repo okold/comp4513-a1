@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+import FilterTitle from './FilterTitle';
 import "./Home.css"
 
 
@@ -15,9 +15,9 @@ const Home = (props) => {
                 {!props.isLoading() &&
                     <form>
                         <label>Title</label>
-                        <input></input>
+                        <FilterTitle filterTitle={props.filterTitle}/>
                         <Link to="/comp4513-a1/browse" className="link-btn">Search Plays</Link>
-                        <Link to="/comp4513-a1/browse" className="link-btn">View All</Link>
+                        <Link to="/comp4513-a1/browse" className="link-btn" onClick={props.clearFilter}>View All</Link>
                     </form>
                 }
                 <p>Image: <a href="https://unsplash.com/photos/nz-UtZz81fI">Unsplash</a> |
