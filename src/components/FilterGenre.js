@@ -1,4 +1,4 @@
-// i know i shouldn't hard code this but i'm PRESSED FOR TIME
+// todo: not harde code this
 const FilterGenre = (props) => {
     return ( <select onChange={e => props.filterPlays("genre", e.target.value)}>
         <option default></option>

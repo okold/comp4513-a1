@@ -27,15 +27,15 @@ td {
 h2 {
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     border-width: 0px 0px 2px 0px;
     border-style: solid;
+    color: black !important;
 }
 
 h3 {
     text-align: center;
     text-decoration: underline;
-    padding-top: 1rem;
 }
 
 label {

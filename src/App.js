@@ -71,19 +71,21 @@ class App extends React.Component {
   filterAll(exclude, plays_init) {
     let new_plays = [...plays_init]
 
-    if (exclude !== "title" && this.state.title_filter && this.state.title_filter !== "") {
+	let verify = (key, filter_value, conditional) => exclude !== key && filter_value && conditional;
+
+    if (verify("title", this.state.title_filter, (this.state.title_filter !== ""))) {
       new_plays = new_plays.filter(p => p.title.toUpperCase().includes(this.state.title_filter.toUpperCase()));
     }
 
-    if (exclude !== "start" && this.state.date_start_filter && Number(this.state.date_start_filter)) {
+    if (verify("start", this.state.date_start_filter, Number(this.state.date_start_filter))) {
       new_plays = new_plays.filter(p => p.likelyDate >= this.state.date_start_filter);
     }
 
-    if (exclude !== "end" && this.state.date_end_filter && Number(this.state.date_end_filter)) {
+    if (verify("end", this.state.date_end_filter, Number(this.state.date_end_filter))) {
       new_plays = new_plays.filter(p => p.likelyDate <= this.state.date_end_filter);
     }
 
-    if (exclude !== "genre" && this.state.genre_filter && this.state.genre_filter !== "") {
+    if (verify("genre", this.state.genre_filter, (this.state.genre_filter !== ""))) {
       new_plays = new_plays.filter(p => p.genre.toUpperCase().includes(this.state.genre_filter.toUpperCase()));
     }
 

@@ -20,8 +20,6 @@ const Home = (props) => {
                         <Link to="/comp4513-a1/browse" className="link-btn" onClick={props.clearFilter}>View All</Link>
                     </form>
                 }
-                <p>Image: <a href="https://unsplash.com/photos/nz-UtZz81fI">Unsplash</a> |
-                    Spinner: <a href="https://icons8.com/preloaders/en/circular">Preloaders.net</a></p>
             </div>
         </div>
         );

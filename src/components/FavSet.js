@@ -1,6 +1,6 @@
-const FavoritesList = (props) => {
+const FavSet = (props) => {
     return (
-        <div id="fav-list">
+        <div>
             <h2>Favourites</h2>
             <table>
                 <thead>
@@ -10,9 +10,9 @@ const FavoritesList = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    { props.getFavFunctions().getFavList().map(p => { return <tr>
+                    { props.favs.set.map(p => { return <tr>
                         <td>{p.title}</td>
-                        <td className="thin-col" onClick={e => props.getFavFunctions().removeFromFavs(p)}>X</td>
+                        <td className="thin-col" onClick={e => props.removeFromFavs(p)}>X</td>
                         </tr>
                     })}
                 </tbody>
@@ -21,4 +21,4 @@ const FavoritesList = (props) => {
     );
 }
 
-export default FavoritesList;
+export default FavSet;
