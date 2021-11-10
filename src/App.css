@@ -31,3 +31,18 @@ h2 {
     border-width: 0px 0px 2px 0px;
     border-style: solid;
 }
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
+    padding-top: 1rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: rgb(35, 97, 211);
+}

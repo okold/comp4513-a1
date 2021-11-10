@@ -1,0 +1,25 @@
+
+
+#filter-form {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+#filter-form *:nth-child(1), 
+#filter-form *:nth-child(2), 
+#filter-form *:nth-child(3),
+#filter-form *:nth-child(8),
+#filter-form *:nth-child(9),
+#filter-form *:nth-child(10)
+ {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#filter-form button {
+    height: 2rem;
+    width: 10rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}

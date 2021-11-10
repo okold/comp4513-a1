@@ -10,7 +10,7 @@ const PlayBrowser = (props) => {
         <div id="play-browser">
             <Header/>
             <FavoritesList getFavFunctions={props.getFavFunctions}/>
-            <Filters title={props.title} filterPlays={props.filterPlays}/>
+            <Filters title={props.title} filterPlays={props.filterPlays} clearFilter={props.clearFilter}/>
             <PlayList favFuncs={props.getFavFunctions()} plays={props.plays}/>
         </div>
     );

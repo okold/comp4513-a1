@@ -12,7 +12,6 @@ const PlayList = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-
                     { props.plays.map(p => {
                         return (
                         <tr>
@@ -28,7 +27,9 @@ const PlayList = (props) => {
                         </tr>)} ) }
                 </tbody>
             </table>
-           
+            {props.plays.length === 0 &&
+                        <p>No matches found!</p>
+                    }
         </div>
     );
 }

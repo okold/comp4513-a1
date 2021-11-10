@@ -19,9 +19,8 @@ class App extends React.Component {
       genre_filter: null
     };
 
-    this.isLoading=this.isLoading.bind(this);
-    this.getPlayList=this.getPlayList.bind(this);
     this.filterPlays=this.filterPlays.bind(this);
+    this.filterAll=this.filterAll.bind(this);
     this.clearFilter=this.clearFilter.bind(this);
 
     this.addToFavs=this.addToFavs.bind(this);
@@ -31,20 +30,7 @@ class App extends React.Component {
     this.getFavFunctions=this.getFavFunctions.bind(this);
   }
 
-  isLoading() {
-    if (this.state.loading) { // do this for safety?
-      return true;
-    }
-    return false;
-  }
-
   // PLAY LIST & FILTER FUNCTIONS
-  getPlayList() {
-    if (this.state.filtered_plays.length > 0)
-      return this.state.filtered_plays;
-    
-    return this.state.plays;
-  }
 
   filterPlays(key, value) {
 
@@ -53,10 +39,55 @@ class App extends React.Component {
     if (key === "title") {
       this.setState({title_filter: value})
       new_filtered_plays = new_filtered_plays.filter(p => p.title.toUpperCase().includes(value.toUpperCase()));
+      new_filtered_plays = this.filterAll("title", new_filtered_plays);
     }
 
+    if (key === "start" && Number(value)) {
+      this.setState({date_start_filter: Number(value)})
+      
+      new_filtered_plays = new_filtered_plays.filter(p => p.likelyDate >= Number(value));
+      new_filtered_plays = this.filterAll("start", new_filtered_plays);
+    }
+
+    if (key === "end" && Number(value)) {
+      this.setState({date_end_filter: Number(value)})
+      
+      new_filtered_plays = new_filtered_plays.filter(p => p.likelyDate <= Number(value));
+      new_filtered_plays = this.filterAll("end", new_filtered_plays);
+    }
+
+    if (key === "genre") {
+      this.setState({genre_filter: value})
+      new_filtered_plays = new_filtered_plays.filter(p => p.genre.toUpperCase().includes(value.toUpperCase()));
+      new_filtered_plays = this.filterAll("genre", new_filtered_plays);
+    }
     
     this.setState({filtered_plays: new_filtered_plays})
+  }
+
+  // filters all according to the state, except for the excluded key
+  // this gets around a bug where filtering everything at once based on state would
+  // make the filter lag behind by one step...
+  filterAll(exclude, plays_init) {
+    let new_plays = [...plays_init]
+
+    if (exclude !== "title" && this.state.title_filter && this.state.title_filter !== "") {
+      new_plays = new_plays.filter(p => p.title.toUpperCase().includes(this.state.title_filter.toUpperCase()));
+    }
+
+    if (exclude !== "start" && this.state.date_start_filter && Number(this.state.date_start_filter)) {
+      new_plays = new_plays.filter(p => p.likelyDate >= this.state.date_start_filter);
+    }
+
+    if (exclude !== "end" && this.state.date_end_filter && Number(this.state.date_end_filter)) {
+      new_plays = new_plays.filter(p => p.likelyDate <= this.state.date_end_filter);
+    }
+
+    if (exclude !== "genre" && this.state.genre_filter && this.state.genre_filter !== "") {
+      new_plays = new_plays.filter(p => p.genre.toUpperCase().includes(this.state.genre_filter.toUpperCase()));
+    }
+
+    return new_plays;
   }
 
   clearFilter() {
@@ -129,8 +160,17 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/comp4513-a1" element={<Home isLoading={this.isLoading} filterPlays={this.filterPlays} clearFilter={this.clearFilter} title={this.state.title_filter}/>}/>
-          <Route path="/comp4513-a1/browse" element={<PlayBrowser plays={this.state.filtered_plays} getFavFunctions={this.getFavFunctions} filterPlays={this.filterPlays} clearFilter={this.clearFilter} title={this.state.title_filter}/>}/>
+          <Route path="/comp4513-a1" element={
+            <Home loading={this.state.loading} 
+              filterPlays={this.filterPlays} 
+              clearFilter={this.clearFilter} 
+              title={this.state.title_filter}/>}/>
+          <Route path="/comp4513-a1/browse" element={
+            <PlayBrowser plays={this.state.filtered_plays} 
+              getFavFunctions={this.getFavFunctions} 
+              filterPlays={this.filterPlays} 
+              clearFilter={this.clearFilter} 
+              title={this.state.title_filter}/>}/>
         </Routes>
       </BrowserRouter>
     );

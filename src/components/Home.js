@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import FilterTitle from './FilterTitle';
+import FilterInput from './FilterInput';
 import "./Home.css"
 
 
@@ -9,13 +9,13 @@ const Home = (props) => {
         <div id="fill">
             <div id="home-box">
                 <h2>Play Browser</h2>
-                {props.isLoading() && // https://reactjs.org/docs/conditional-rendering.html
+                {props.loading && // https://reactjs.org/docs/conditional-rendering.html
                     <img src="spinner.gif" alt="loading"/>
                 }
-                {!props.isLoading() &&
+                {!props.loading &&
                     <form>
                         <label>Title</label>
-                        <FilterTitle title={props.title} filterPlays={props.filterPlays}/>
+                        <FilterInput title={props.title} type="title" filterPlays={props.filterPlays}/>
                         <Link to="/comp4513-a1/browse" className="link-btn">Search Plays</Link>
                         <Link to="/comp4513-a1/browse" className="link-btn" onClick={props.clearFilter}>View All</Link>
                     </form>
