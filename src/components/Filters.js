@@ -6,7 +6,7 @@ import "./Filters.css"
 const Filters = (props) => {
     return (
         <div id="filters">
-            FILTERS
+            <h2>Filters</h2>
             <label>Title</label>
             <FilterTitle title={props.title} filterPlays={props.filterPlays}/>
         </div>

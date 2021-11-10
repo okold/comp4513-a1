@@ -15,7 +15,7 @@ const Home = (props) => {
                 {!props.isLoading() &&
                     <form>
                         <label>Title</label>
-                        <FilterTitle filterTitle={props.filterTitle}/>
+                        <FilterTitle title={props.title} filterPlays={props.filterPlays}/>
                         <Link to="/comp4513-a1/browse" className="link-btn">Search Plays</Link>
                         <Link to="/comp4513-a1/browse" className="link-btn" onClick={props.clearFilter}>View All</Link>
                     </form>

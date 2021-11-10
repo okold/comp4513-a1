@@ -11,7 +11,7 @@ const PlayBrowser = (props) => {
             <Header/>
             <FavoritesList getFavFunctions={props.getFavFunctions}/>
             <Filters title={props.title} filterPlays={props.filterPlays}/>
-            <PlayList addToFavs={props.getFavFunctions().addToFavs} getPlayList={props.getPlayList}/>
+            <PlayList favFuncs={props.getFavFunctions()} plays={props.plays}/>
         </div>
     );
 }

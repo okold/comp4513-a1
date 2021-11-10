@@ -1,3 +1,33 @@
+body {
+    background-color: lightgrey;
+}
+
 table {
-    width: 100%;
+    width: calc(100% - 1rem);
+}
+
+table thead * {
+    font-weight: bold;
+    text-align: center;
+}
+
+tbody tr:nth-of-type(odd) td {
+    background-color: rgb(238, 238, 238) !important;
+}
+
+td {
+    padding: 0.5rem;
+}
+
+.thin-col {
+    width: 4rem;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    border-width: 0px 0px 2px 0px;
+    border-style: solid;
 }

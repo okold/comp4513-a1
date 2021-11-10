@@ -1,7 +1,3 @@
 #play-list {
-    height: 100%;
-}
-
-#play-data {
     overflow-y: scroll;
 }
