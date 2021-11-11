@@ -3,18 +3,26 @@
     color: white;
 }
 
-#play-details {
+.details {
     display: grid;
     grid-template-columns: 1fr auto;
     max-width: 100%;
 }
 
-#play-details *:nth-child(odd) {
+.details *:nth-child(odd) {
     font-weight: bold;
     text-align: right;
 }
 
-#play-details *:nth-child(even) {
+.details *:nth-child(even) {
     text-align: left;
     overflow-wrap: break-word;
+}
+
+.serif {
+    font-family: serif;
+}
+
+.speech {
+    padding: 0 !important;
 }

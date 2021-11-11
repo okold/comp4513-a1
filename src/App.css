@@ -46,3 +46,11 @@ a, a:visited {
     text-decoration: none;
     color: rgb(35, 97, 211);
 }
+
+ul {
+    list-style: none;
+}
+
+.scrollable {
+    overflow-y: scroll;
+}

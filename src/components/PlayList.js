@@ -1,9 +1,6 @@
-import "./PlayList.css"
-import { Link } from 'react-router-dom';
-
 const PlayList = (props) => {
     return (
-        <div id="play-list">
+        <div className="scrollable">
         <h2>Play List</h2>
             <table id="play-data">
                 <thead>
