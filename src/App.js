@@ -9,15 +9,22 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      plays: [], 
+      plays: [],
+      current: null,
+      single_view: false,
+
       loading: true, 
       favs: [], 
       filtered_plays: [],
       title_filter: null,
       date_start_filter: null,
       date_end_filter: null,
-      genre_filter: null
+      genre_filter: null,
     };
+
+    this.setCurrent=this.setCurrent.bind(this);
+    this.closeCurrent=this.closeCurrent.bind(this);
+    this.sortPlays=this.sortPlays.bind(this);
 
     this.filterPlays=this.filterPlays.bind(this);
     this.filterAll=this.filterAll.bind(this);
@@ -28,6 +35,14 @@ class App extends React.Component {
     this.isFav=this.isFav.bind(this);
     this.removeFromFavs=this.removeFromFavs.bind(this);
     this.getFavFunctions=this.getFavFunctions.bind(this);
+  }
+
+  setCurrent(play) {
+    this.setState({current: play, single_view: true});
+  }
+
+  closeCurrent() {
+    this.setState({single_view: false});
   }
 
   // PLAY LIST & FILTER FUNCTIONS
@@ -90,6 +105,15 @@ class App extends React.Component {
     }
 
     return new_plays;
+  }
+
+  // works with the year, not with the title. no idea why
+  sortPlays(key) {
+    let new_plays = [...this.state.plays];
+    
+    new_plays.sort((a, b) => a[key] - b[key]);
+    let new_filtered_plays = this.filterAll("", new_plays);
+    this.setState({plays: new_plays, filtered_plays: new_filtered_plays});
   }
 
   clearFilter() {
@@ -172,7 +196,13 @@ class App extends React.Component {
               getFavFunctions={this.getFavFunctions} 
               filterPlays={this.filterPlays} 
               clearFilter={this.clearFilter} 
-              title={this.state.title_filter}/>}/>
+              title={this.state.title_filter}
+              sortPlays={this.sortPlays}
+              setCurrent={this.setCurrent}
+              closeCurrent={this.closeCurrent}
+              single_view={this.state.single_view}
+              current={this.state.current}
+              />}/>
         </Routes>
       </BrowserRouter>
     );

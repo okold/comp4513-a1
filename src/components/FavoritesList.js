@@ -11,7 +11,7 @@ const FavoritesList = (props) => {
                 </thead>
                 <tbody>
                     { props.getFavFunctions().getFavList().map(p => { return <tr>
-                        <td>{p.title}</td>
+                        <td onClick={e => props.setCurrent(p)}>{p.title}</td>
                         <td className="thin-col" onClick={e => props.getFavFunctions().removeFromFavs(p)}>X</td>
                         </tr>
                     })}

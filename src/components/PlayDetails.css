@@ -1,0 +1,20 @@
+.current-mode {
+    background-color: black !important;
+    color: white;
+}
+
+#play-details {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    max-width: 100%;
+}
+
+#play-details *:nth-child(odd) {
+    font-weight: bold;
+    text-align: right;
+}
+
+#play-details *:nth-child(even) {
+    text-align: left;
+    overflow-wrap: break-word;
+}

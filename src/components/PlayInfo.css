@@ -1,0 +1,15 @@
+#play-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#play-controls button {
+    width: 8rem;
+    height: 3rem;
+}
+
+.fav-button {
+    font-size: 3rem;
+}

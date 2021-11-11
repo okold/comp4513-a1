@@ -1,3 +1,7 @@
 #play-list {
     overflow-y: scroll;
 }
+
+.play-title {
+    background: none !important;
+}

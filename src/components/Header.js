@@ -32,7 +32,7 @@ const Header = (props) => {
 
     return (
         <div id="header">
-            <Link to="/comp4513-a1/" id="logo">&#127917;</Link>
+            <Link to="/comp4513-a1/" id="logo" onClick={props.closeCurrent}>&#127917;</Link>
             <button onClick={openModal}>About</button>
             <Modal
                 isOpen={modalIsOpen}
@@ -65,6 +65,7 @@ const Header = (props) => {
                     <p><a href="https://unsplash.com/photos/nz-UtZz81fI">unsplash</a></p><p>home view splash image</p>
                     <p><a href="https://icons8.com/preloaders/en/circular">preloaders.net</a></p><p>spinner gif</p>
                 </div>
+                <p>All the symbols are unicode this time around</p>
                 <button id="modal-button" onClick={closeModal}>Close</button>
             </Modal>
         </div>
